@@ -29,6 +29,10 @@ def file_read(file):
             yield friend
 
 
+class QQmailMixin:
+    pass
+
+
 class QQmail:
     head = {
         'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) '
@@ -37,7 +41,7 @@ class QQmail:
         'referer': 'https://rl.mail.qq.com/zh_CN/htmledition/ajax_proxy.html?mail.qq.com&v=130132',
     }
 
-    def __init__(self):
+    def __init__(self, qqmail, sid, cookie):
         # self.cookie = {'cookie': 'pt2gguin=o0347761683; RK=/Ir1hRvwXg; '
         #                          'ptcz=50dc4224a1aaf038e754346f1b0fb3f841c248e99ab2849d5f8a424d596dc8d5; '
         #                          'edition=mail.qq.com; webp=1; pgv_pvid=2897244896; pgv_pvi=9966468096; '
@@ -53,11 +57,14 @@ class QQmail:
         #                          'qm_ptsk=347761683&@rITroCgIV; qm_loginfrom=347761683&wsk; '
         #                          'new_mail_num=347761683&103; uin=o0347761683'
         #                }
-        self.qqmail = '347761683@qq.com'
-        self.sid = 'gJN3st48O4FLFwNZ'
-        self.qqmail = str(input('输入你的qq邮箱\n'))
-        self.sid = str(input('输入sid\n'))
-        self.cookie = {'cookie': str(input('输入cookies\n'))}
+        self.qqmail = qqmail
+        self.sid = sid
+        self.cookie = cookie
+        # self.qqmail = '347761683@qq.com'
+        # self.sid = 'gJN3st48O4FLFwNZ'
+        # self.qqmail = str(input('输入你的qq邮箱\n'))
+        # self.sid = str(input('输入sid\n'))
+        # self.cookie = {'cookie': str(input('输入cookies\n'))}
 
         self.url = f'https://mail.qq.com/cgi-bin/compose_send?sid={self.sid}'
 
@@ -95,7 +102,7 @@ class QQmail:
             print(f'successful  <{self.qqmail}> -> <{sender}>')
 
 
-if __name__ == '__main__':
-    fdl = QQmail()
-    fdl.send_mes()
+# if __name__ == '__main__':
+    # fdl = QQmail()
+    # fdl.send_mes()
     # f = fdl.file_read('qq.txt')
