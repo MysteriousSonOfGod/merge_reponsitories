@@ -1,5 +1,5 @@
-# infomation_system_Python
-## 四川大学信管专业学术社团python技术区  
+
+# 四川大学信管专业学术社团python技术区  
 
 ![python](https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=1891872133,1372837760&fm=27&gp=0.jpg)
 
