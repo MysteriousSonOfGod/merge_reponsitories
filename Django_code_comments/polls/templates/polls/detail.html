@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Detail</title>
+</head>
+<body>
+<h1>{{ question.question_text }}</h1>
+
+{% if error_message %}
+    <p><strong>{{ error_message }}</strong></p>
+{% endif %}
+
+<form action="{% url 'polls:vote' question.id %}" method="post">
+    {% csrf_token %}
+    {% for choice in question.choice_set.all %}
+        <input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}" />
+        <label for="choice{{ forloop.counter }}">
+        {{ choice.choice_text }}
+        </label><br />
+    {% endfor %}
+<input type="submit" value="Vote" />
+</form>
+
+{#<ul>#}
+{#    {% for choice in question.choice_set.all %}#}
+{#        <li>{{ choice.choice_text }}</li>#}
+{#        模板指南：https://docs.djangoproject.com/zh-hans/2.0/topics/templates/#}
+{#        模板系统统一使用点符号来访问变量的属性。在示例 {{ question.question_text }} 中，首先#}
+{#        Django 尝试对 question 对象使用字典查找（也就是使用 obj.get(str) 操作），如果失败了就尝试属性查找#}
+{#        （也就是 obj.str 操作），结果是成功了。如果这一操作也失败的话，将会尝试列表查找（也就是 obj[int] 操作）。#}
+{#    {% endfor %}#}
+{#</ul>#}
+{#{{ question }}#}
+</body>
+</html>
