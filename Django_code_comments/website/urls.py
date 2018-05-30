@@ -18,7 +18,12 @@ from django.contrib import admin
 from django.urls import path
 from django.urls import include
 
+from learn import views as learn_views
+
+
 urlpatterns = [
+    path('', learn_views.start_page),
+    path('learn/', include('learn.urls')),
     path('polls/', include('polls.urls')),
     path('admin/', admin.site.urls),
 ]
