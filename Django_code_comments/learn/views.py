@@ -1,14 +1,25 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
+from django.urls import reverse
 # Create your views here.
 
 
-def start_page(request):
-    return HttpResponse("Hello, welcome to visit my blog.")
+def home(request):
+    tutorial_list = ["HTML", "CSS", "jQuery", "Python", "Django"]
+    info_dict = {'site': '付东来', 'content': '瞎BB'}
+    generator = map(str, range(100))
+    return render(request, template_name='learn/home.html',
+                  context={
+                      'tutorial_list': tutorial_list,
+                      'info_dict': info_dict,
+                      'generator': generator,
+                      'request': request,
+
+                  })
 
 
 def index(request):
-    return HttpResponse("Hello, welcome to learn.")
+    return render(request, 'learn/home.html')
 
 
 def add(request):
@@ -22,7 +33,7 @@ def add(request):
     # b = request.GET['b']
     b = request.GET.get('b', 2)
     c = int(a) + int(b)
-    return HttpResponse(str(c))
+    return HttpResponse('add = ' + str(c))
 
 
 def add2(request, a, b):
@@ -32,5 +43,13 @@ def add2(request, a, b):
     参数错误就会404
     """
     c = int(a) + int(b)
-    return HttpResponse(str(c))
+    # print(reverse('learn:add2', args=(a, b,)))
+    return HttpResponse('add2 = ' + str(c))
+
+
+def old_add2_redirect(request, a, b):
+    # a = request.GET.get('a', 1)
+    # b = request.GET.get('b', 2)
+    # 这里 redirect 到了 add2 网址
+    return HttpResponseRedirect(reverse('learn:add2', args=(a, b)))
 

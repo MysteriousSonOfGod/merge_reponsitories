@@ -32,10 +32,12 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'people.apps.PeopleConfig',
     # 我操忘了加逗号就会有 ModuleNotFoundError: No module named 'learn.apps.LearnConfigpolls'
     'learn.apps.LearnConfig',
     # 注意这里好像和 Django Girls 里不太一样，注册的是 Config 类
     'polls.apps.PollsConfig',
+
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

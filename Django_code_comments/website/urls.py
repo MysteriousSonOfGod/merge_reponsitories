@@ -22,7 +22,7 @@ from learn import views as learn_views
 
 
 urlpatterns = [
-    path('', learn_views.start_page),
+    path('', learn_views.home),
     path('learn/', include('learn.urls')),
     path('polls/', include('polls.urls')),
     path('admin/', admin.site.urls),

@@ -21,6 +21,25 @@ def index(request):
 """
 
 
+"""
+def detail(request, question_id):
+    # try:
+    #     question = Question.objects.get(pk=question_id)
+    # except Question.DoesNotExist:
+    #     raise Http404('Question does not exist')
+
+    # get_object_or_404()是 Http404 错误的快捷函数
+    question = get_object_or_404(Question, pk=question_id)
+    return render(request, 'polls/detail.html', {'question': question})
+"""
+
+"""
+def results(request, question_id):
+    question = get_object_or_404(Question, pk=question_id)
+    return render(request, 'polls/results.html', {'question': question})
+"""
+
+
 class IndexView(generic.ListView):
     template_name = 'polls/index.html'
     # 类似地，ListView 默认使用一个叫做 < appname > / < modelname > _list.html的默认模板；
@@ -40,19 +59,6 @@ class IndexView(generic.ListView):
         # lte --> less than equal 选出比当前时间小的queryset
 
 
-"""
-def detail(request, question_id):
-    # try:
-    #     question = Question.objects.get(pk=question_id)
-    # except Question.DoesNotExist:
-    #     raise Http404('Question does not exist')
-
-    # get_object_or_404()是 Http404 错误的快捷函数
-    question = get_object_or_404(Question, pk=question_id)
-    return render(request, 'polls/detail.html', {'question': question})
-"""
-
-
 class DetailView(generic.DetailView):
     model = Question
     template_name = 'polls/detail.html'
@@ -66,13 +72,6 @@ class DetailView(generic.DetailView):
         :return: <Queryset>
         """
         return Question.objects.filter(pub_date__lte=timezone.now())
-
-
-"""
-def results(request, question_id):
-    question = get_object_or_404(Question, pk=question_id)
-    return render(request, 'polls/results.html', {'question': question})
-"""
 
 
 class ResultsView(generic.DetailView):
@@ -98,6 +97,7 @@ def vote(request, question_id):
         selected_choice.votes += 1
         selected_choice.save()
     return HttpResponseRedirect(reverse('polls:results', args=(question_id,)))  # '/polls/3/results/'
+    # 重定向！！
     # 你应该总是返回一个HttpResponseRedirect在一次POST数据之后，这不是Django特定，而是通用技巧
     # reverse()函数避免了我们在视图函数中硬编码URL。它需要我们给出我们想要跳转的视图的名字和该视图所对应的URL模式中需要给该视图提供的参数。
 

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}start page{% endblock %}</title>
+</head>
+<body>
+{#<a href="{% url 'learn:add2' 4 4 %}">4 add 4</a>#}
+
+tutorial list:
+{% for tutorial in tutorial_list %}
+{{ tutorial }}
+{% endfor %}<br>
+
+{% for k, v in info_dict.items %}
+{{ k }}->{{ v }}
+{% endfor %}<br>
+
+{% for num in generator %}
+{{ num }}
+    {% if not forloop.last %},{% endif %}
+{#    这里需要判断是否是最后一个数字，如果是，就别打逗号了。#}
+ {% empty %}
+    抱歉，列表为空。当列表中可能为空值时用 for  empty
+ {% endfor %}<br />
+
+user: {{ request.user }}{# 获取当前用户 #}
+path: {{ request.path }}{# 获取当前网址 #}<br>
+<a href="{{ request.path }}?{{ request.GET.urlencode }}&delete=1">当前网址加参数 delete</a>
+
+{#上下文渲染器#}
+{#https://code.ziqiangxuetang.com/django/django-context-processors.html#}
+</body>
+</html>
+
+{# 变量	                描述 #}
+{# forloop.counter	    索引从 1 开始算 #}
+{# forloop.counter0	    索引从 0 开始算 #}
+{# forloop.revcounter	索引从最大长度到 1 #}
+{# forloop.revcounter0	索引从最大长度到 0 #}
+{# forloop.first	        当遍历的元素为第一项时为真 #}
+{# forloop.last	        当遍历的元素为最后一项时为真 #}
+{# forloop.parentloop    用在嵌套的 for 循环中，获取上一层 for 循环的 forloop #}
+
+{# and, or, not, in, not in 也可以在模板中使用 #}
+{# ==, !=, >=, <=, >, < 这些比较都可以在模板中使用 #}
+{# 注意：比较符号前后必须有至少一个空格！#}
