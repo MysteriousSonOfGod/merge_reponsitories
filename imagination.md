@@ -21,16 +21,16 @@ OK, after all, I'm so casual about everything, regardless of the past or the pre
 But, it's... Something was always hard to explain, unnecessary either. 
 What counts is, I started to read English novels. 
 Don't ask me why, many choice in my life, I just followed my mind. 
-The first novel I read was named _The piano_. It's easy and not prolix. 
+The first novel I read named _The piano_. It was easy and not prolix. 
 Then I fell in love with reading origin works. 
 The real fiction I read named _First Love_, whose author was a Former Soviet Union writer. 
-It describes a complited love story, same as the real life. 
+It describes a complited love story, just as complicted as the real life. 
 After that I read _The Sarrows of Young Whiter_, but I didn't finish it.
 I forget why. 
 
-OK, I'm tired, I wanner sleep and review lessons. 
+OK, I'm tired, I wanner sleep and review lessons, now. 
 it's unquestionable that only I pass all the examinations can I learn everything I love. 
 There is no denying that I'm delayed by the damn school. 
 Don't try to tie me down with those fucking examinations. 
-There is no tricks to learn. Stop dreaming and to fighting.
+There is no tricks to learn. Stop dreaming and to fight.
 It is the persistence that should be the sharpest weapon. 
