@@ -1,0 +1,17 @@
+{% extends "admin/base.html" %}
+
+{% block title %}{{ title }} | {{ site_title|default:_('Django site admin') }}{% endblock %}
+
+{% block branding %}
+<h1 id="site-name"><a href="{% url 'admin:index' %}">Information System Administration</a></h1>
+{#    {{ site_header|default:_('Django administration') }}#}
+{% endblock %}
+
+{% block nav-global %}{% endblock %}
+
+{#在一个实际工程中，你可能更期望使用 django.contrib.admin.AdminSite.site_header 来进行简单的定制。#}
+{#这个模板文件包含很多类似 {% block branding %} 和 {{ title }} 的文本。 #}
+{#{% 和 {{ 标签是 Django 模板语言的一部分。当 Django 渲染 admin/base_site.html 时，这个模板语言会被求值，生成最终的网页#}
+
+{#注意，所有的 Django 默认后台模板均可被复写。#}
+{#若要复写模板，像你修改 base_site.html 一样修改其它文件——先将其从默认目录中拷贝到你的自定义目录，再做修改。#}

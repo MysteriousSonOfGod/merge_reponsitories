@@ -1,0 +1,10 @@
+li a {
+    color: green;
+}
+
+body {
+    background: white url("images/background.gif")
+no-repeat;
+}
+/*{% static %} 模板标签在静态文件（例如样式表）中是不可用的，因为它们不是由 Django 生成的。 */
+/*你仍需要使用 相对路径 的方式在你的静态文件之间互相引用。*/
